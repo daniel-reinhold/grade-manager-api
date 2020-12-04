@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: grade_manager_api_development
+  username: admin
+  password: admin
+
+test:
+  <<: *default
+  database: grade_manager_api_test
+
+production:
+  <<: *default
+  database: grade_manager_api_production
+  username: grade_manager_api
+  password: <%= ENV['GRADE_MANAGER_API_DATABASE_PASSWORD'] %>
