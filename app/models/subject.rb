@@ -4,5 +4,6 @@ class Subject < ApplicationRecord
   has_many :grades
 
   # Validations
-  validates :name, :user_id, :presence => {:message => 'Value has to be specified'}
+  validates :name, :user_id,  :presence     => {:message => I18n.t("errors.presence")}
+  validates :user_id,         :numericality => {:message => I18n.t("errors.numericality")}
 end
